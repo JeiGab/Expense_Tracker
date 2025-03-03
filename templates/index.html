@@ -3,47 +3,73 @@
 <head>
     <title>Expense Tracker - JR</title>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/presupuesto.png')}}" />
 </head>
 <body>
-            <img class="wave" src="{{ url_for('static', filename='img/wave.png')}}" alt="xd"> 
-        <div class="container">
-                <div class="img">
-                    <img class="bg" src="{{ url_for('static', filename='img/bg.svg') }}" alt="bg">
-                    <img class="sbg" src="{{ url_for('static', filename='img/sgb.svg') }}" alt="sbg">
-                </div>
-                
-             <div class="login-content">
+    <img class="wave" src="{{ url_for('static', filename='img/wave.png')}}" alt="wave">
+    <div class="container">
+        <div class="img">
+            <img class="bg" src="{{ url_for('static', filename='img/bg.svg') }}" alt="bg">
+            <img class="sbg" src="{{ url_for('static', filename='img/sgb.svg') }}" alt="sbg">
+        </div>
+
+        <div class="form-container">
+            <!-- Sección de Login -->
+            <div class="login-content bg-white p-5 rounded-5 text-secondary shadow" style="width: 27rem">
                 <form action="index.html">
                     <img src="{{ url_for('static', filename='img/avatar.png') }}" alt="avatar">
                     <h2 class="title">Welcome</h2>
-                    <div class="input-div one">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="div">
-                            <h5>Username</h5>
-                            <input type="text" class="input">
-                        </div>
-                    </div> 
-                        <div class="input-div pass">
-                            <div class="i">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div class="div">
-                                <h5>Password</h5>
-                                <input type="password" class="input">
-                        </div>
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text">🙍‍♂️</span>
+                        <input type="text" class="form-control" placeholder="Username">
                     </div>
-                    <a href="#">Forgot Password?</a>
-                    <input type="submit" class="btn" value="Login">   
+                    <div class="input-group flex-nowrap mt-3">
+                        <span class="input-group-text">🔐</span>
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <a class="register-link mt-2" href="#">You don't have an account? Register here</a>
+                    <input type="submit" class="btn btn-primary w-100 mt-3" value="Login">
+                </form>
+            </div>
+
+            <!-- Sección de Registro -->
+            <div class="register-content bg-white p-5 rounded-5 text-secondary shadow" style="width: 27rem">
+                <form id="register-form" method="POST" action="/register">
+                    <img class="user-register" src="{{ url_for('static', filename='img/register.svg') }}" alt="avatar">
+                    <h2 class="title">Register</h2>
+                    <div class="input-group flex-nowrap;">
+                        <span class="input-group-text">🙍‍♂️</span>
+                        <input name="username" type="text" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="input-group flex-nowrap mt-3">
+                        <span class="input-group-text">📅</span>
+                        <input name="birth_date" type="date" class="form-control" placeholder="Fecha de nacimiento" required>
+                    </div>
+                    <div class="input-group flex-nowrap mt-3">
+                        <span class="input-group-text">✉️</span>
+                        <input name="email" type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="input-group flex-nowrap mt-3">
+                        <span class="input-group-text">🔐</span>
+                        <input name="password" type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="input-group flex-nowrap mt-3">
+                        <span class="input-group-text">🔐</span>
+                        <input type="password" class="form-control" placeholder="Repeat your password" required>
+                    </div>
+                    <a class="login-link mt-2" href="#">Back to Login</a>
+                    <button type="submit" class="btn btn-success w-100 mt-3" value="Register">
+                        Register    
+                    </button>
                 </form>
             </div>
         </div>
+    </div>
 </body>
 </html>

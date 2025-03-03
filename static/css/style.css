@@ -27,18 +27,22 @@ body{
 }
 
 .img .bg {
-    position: relative;  
-    top: -90px;
-    transform: translateX(-20px); 
+	position: fixed;
+	bottom: 30px;
+	left: 0;
+	margin-left: 20px;
+	height: 100%;
+	z-index: -1;
 }
 
 .img .sbg {
-    position: relative; 
-    width: 50%;
-    left: -30px; 
-    top: 20%;
+    position: fixed; 
+    left: 0px;
+	margin-left: 25%; 
+    top: 60%;
     transform: translateX(-20px); 
 }
+
 
 .img{
 	display: flex;
@@ -46,27 +50,77 @@ body{
 	align-items: center;
 }
 
+.form-container {
+	display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+	text-align: center;
+    height: 100vh; 
+	margin-left: -30%;
+	margin-right: 10%;
+}
+
 .login-content{
-    margin-left: 20%;
+	width: 100%;
+	margin-left: 20% ;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
 }
 
+.register-content{
+	margin-left: 20% ;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+
+/* Animacion del login al registro - bsv */
+
+.login-content, .register-content {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.login-content {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.register-content {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+/* Clase activa para mostrar registro */
+.show-register .login-content {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.show-register .register-content {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 .img img{
 	width: 250px;
 }
+
 
 form{
 	width: 360px;
 }
 
-.login-content img{
+.form-container img{
     height: 100px;
 }
 
-.login-content h2{
+
+.form-container h2{
 	margin: 15px 0;
 	color: #333;
 	text-transform: uppercase;
@@ -166,7 +220,7 @@ a{
 	display: block;
 	text-align: right;
 	text-decoration: none;
-	color: #999;
+	color: #187bb0;
 	font-size: 0.9rem;
 	transition: .3s;
 }
